@@ -1,6 +1,6 @@
 #grab the text file to write on.
 
-with open("mystory.txt") as my_file:
+with open("mystory.txt", 'w') as my_file:
     #create a UI
     print("Welcome to the typewriting system!")
 
@@ -24,5 +24,13 @@ with open("mystory.txt") as my_file:
             more_edit = True
             while more_edit == True:
                 writer = str(input("Please type in a new sentence: "))
+                #write on the lines
+                my_file.write(writer + '\n')
+                #ask if they wish to write again
+                new_edit = str(input("Do you wish to add another line? (Y/N): "))
+                #add conditions:
+                if new_edit.lower() == "n":
+                    print("Returning to main menu.")
+                    more_edit = False
 
 
