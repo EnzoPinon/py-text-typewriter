@@ -35,5 +35,36 @@ while user_stop == False:
             my_file = open("mystory.txt", 'w')
             my_file.write(first_line + '\n')
             my_file.close()
+            # start while loop
+            want_edit = True
+            while want_edit == True:
+                confirm = str(input("Do you want to add a new line? (Y/N): "))
+                if confirm.lower() == 'n':
+                    print("Exiting the editor.")
+                    want_edit = False
+                if confirm.lower() == 'y':
+                    with open("mystory.txt", 'a') as edit_file:
+                        update = str(input("Type in a new line: "))
+                        edit_file.write(update + '\n')
+                if confirm.lower() != 'n' and confirm.lower() != 'y':
+                    print("Not a valid answer. Try again.")
+        if line_count != 0:
+            with open("mystory.txt", 'a') as new_edit:
+                new_line = str(input("Type in a new line: "))
+                new_edit.write(new_line + '\n')
+                want_edit = True
+                while want_edit == True:
+                    confirm = str(input("Do you wish to add more lines? (Y/N): "))
+                    if confirm.lower() == 'y':
+                        update = str(input("Type in another line: "))
+                        new_edit.write(update + '\n')
+                    if confirm.lower() == 'n':
+                        want_edit = False
+                        print("exiting the editor.")
+                    if confirm.lower() != 'n' and confirm.lower() != 'y':
+                        print("not a valid answer. Try again.")
 
-
+    if selection == 2:
+        with open("mystory.txt", 'r') as my_file:
+            for line in my_file:
+                print(line.strip())
