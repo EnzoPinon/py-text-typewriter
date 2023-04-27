@@ -66,5 +66,7 @@ while user_stop == False:
 
     if selection == 2:
         with open("mystory.txt", 'r') as my_file:
+            print("------------------------------------------")
             for line in my_file:
                 print(line.strip())
+            print("------------------------------------------")
